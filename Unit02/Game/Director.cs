@@ -48,7 +48,13 @@ namespace Unit02.Game
         {
             Console.Write("Roll dice? [y/n] ");
             string rollDice = Console.ReadLine();
-            isPlaying = (rollDice == "y");
+            if (rollDice == "y"){
+                isPlaying = true;
+            }
+            else{
+                isPlaying = false;
+                endGame();
+            }
         }
 
         /// <summary>
@@ -89,6 +95,11 @@ namespace Unit02.Game
             Console.WriteLine($"You rolled: {values}");
             Console.WriteLine($"Your score is: {totalScore}\n");
             isPlaying = (score > 0);
+        }
+
+        public void endGame()
+        {
+            Console.WriteLine("Thank you for playing.");
         }
     }
 }
